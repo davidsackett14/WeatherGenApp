@@ -17,7 +17,7 @@
   
   ## Installation
   
-  this program is ran by visiting [WeatherAppGen](github.io).
+  this program is ran by visiting [WeatherAppGen](https://davidsackett14.github.io/WeatherGenApp/).
   
   
   ## Usage 
