@@ -1,7 +1,3 @@
-// var value=  document.getElementById('search-term').value;
-
-
-
 function fiveDay(req, res) {
 
   var name=(req.city.name)
@@ -11,11 +7,7 @@ function fiveDay(req, res) {
   var longitude = req.city.coord.lon;
 
   function currentDay(req, res) {
-    console.log(req);
-    console.log(listIndex);
-    
-    // var value=  document.getElementById('search-term').value;
-    // console.log(value)
+ 
     var currentDiv = `   <h5 class="card-title" id="demodemo">${name}</h5>
     <p class="card-text">Current temperature:${Math.floor(
       ((req.current.temp - 273.15) * 9) / 5 + 32
@@ -30,7 +22,6 @@ function fiveDay(req, res) {
 
   console.log(latitude);
 
-  // Here we loop through our array using the .each() method and append a new div with each iteration
   $.each(listIndex, function (i, listnum) {
     var div = `<div class="card">
     <img src="http://openweathermap.org/img/w/${
@@ -58,33 +49,30 @@ function fiveDay(req, res) {
     method: "GET",
   }).then(currentDay);
 }
-
+function clear() {
+  $(".card-group").empty();
+  $("#cardCurrent").empty();
+}
 $("#run-search").on("click", function (event) {
-  // This line allows us to take advantage of the HTML "submit" property
-  // This way we can hit enter on the keyboard and it registers the search
-  // (in addition to clicks). Prevents the page from reloading on form submit.
+
   event.preventDefault();
 
-  // Empty the region associated with the articles
-  // clear();
+  clear();
 
-  
-  var value = $('#search-term').val();
-    
-  var queryURL =
-    `http://api.openweathermap.org/data/2.5/forecast?q=${value}&appid=41ef25e98f82c2141b0b93aab399db3e`;
+  var value = $("#search-term").val();
+  var pastSearchbutton = `<button class="historyButtons">${value}</button>`;
 
-  // Make the AJAX request to the API - GETs the JSON data at the queryURL.
-  // The data then gets passed as an argument to the updatePage function
+  var queryURL = `http://api.openweathermap.org/data/2.5/forecast?q=${value}&appid=41ef25e98f82c2141b0b93aab399db3e`;
+
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(fiveDay);
 
-  // $('#pastSearch')
-
- 
+  $("#pastSearch").append(pastSearchbutton);
+  $(".historyButtons").on("click", function () {
+    var text = $(this).text();
+    $("#search-term").val(text);
+  });
 });
 
-//  .on("click") function associated with the clear button
-// $("#clear-all").on("click", clear);
