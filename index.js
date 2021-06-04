@@ -62,7 +62,7 @@ $("#run-search").on("click", function (event) {
   var value = $("#search-term").val();
   var pastSearchbutton = `<button class="historyButtons">${value}</button>`;
 
-  var queryURL = `https://api.openweathermap.org/data/2.5/forecast?q=${value}&appid=41ef25e98f82c2141b0b93aab399db3e/`;
+  var queryURL = `"https://api.openweathermap.org/data/2.5/forecast?q=${value}&appid=41ef25e98f82c2141b0b93aab399db3e/"`;
 
   $.ajax({
     url: queryURL,
