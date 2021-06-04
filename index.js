@@ -24,7 +24,7 @@ function fiveDay(req, res) {
 
   $.each(listIndex, function (i, listnum) {
     var div = `<div class="card">
-    <img src="http://openweathermap.org/img/w/${
+    <img src="https://openweathermap.org/img/w/${
       req.list[listnum].weather[0].icon
     }.png" class="card-img-top" alt="...">
     <div class="card-body">
