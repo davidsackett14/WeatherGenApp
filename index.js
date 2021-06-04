@@ -1,4 +1,10 @@
+// var value=  document.getElementById('search-term').value;
+
+
+
 function fiveDay(req, res) {
+
+  var name=(req.city.name)
   console.log(req);
   var listIndex = [5, 12, 19, 26, 33];
   var latitude = req.city.coord.lat;
@@ -7,7 +13,10 @@ function fiveDay(req, res) {
   function currentDay(req, res) {
     console.log(req);
     console.log(listIndex);
-    var currentDiv = `   <h5 class="card-title" id="demodemo">Salt Lake City</h5>
+    
+    // var value=  document.getElementById('search-term').value;
+    // console.log(value)
+    var currentDiv = `   <h5 class="card-title" id="demodemo">${name}</h5>
     <p class="card-text">Current temperature:${Math.floor(
       ((req.current.temp - 273.15) * 9) / 5 + 32
     )}</p>
@@ -59,9 +68,11 @@ $("#run-search").on("click", function (event) {
   // Empty the region associated with the articles
   // clear();
 
-  // Build the query URL for the ajax request to the NYT API
+  
+  var value = $('#search-term').val();
+    
   var queryURL =
-    "http://api.openweathermap.org/data/2.5/forecast?q=salt lake city&appid=41ef25e98f82c2141b0b93aab399db3e";
+    `http://api.openweathermap.org/data/2.5/forecast?q=${value}&appid=41ef25e98f82c2141b0b93aab399db3e`;
 
   // Make the AJAX request to the API - GETs the JSON data at the queryURL.
   // The data then gets passed as an argument to the updatePage function
@@ -70,10 +81,9 @@ $("#run-search").on("click", function (event) {
     method: "GET",
   }).then(fiveDay);
 
-  //   $.ajax({
-  //     url: "http://api.openweathermap.org/data/2.5/weather?q=salt lake city&appid=41ef25e98f82c2141b0b93aab399db3e",
-  //     method: "GET",
-  //   }).then(currentDay);
+  // $('#pastSearch')
+
+ 
 });
 
 //  .on("click") function associated with the clear button
