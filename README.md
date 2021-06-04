@@ -5,7 +5,8 @@
 
   ## Description
   
-  this app allows users the ability to search for a city and see the 7 day weather forecast for that city including humidity and  uv index. It includes the use of gifs to rpresent the weather conditions.the app will store the search history and allow the user to click on the previously searched cities and see the forecast for that location. [screenshot](https://github.com/davidsackett14/WeatherGenApp/blob/main/Screenshot%20(120).png)
+  this app allows users the ability to search for a city and see the 7 day weather forecast for that city including humidity and  uv index. It includes the use of gifs to rpresent the weather conditions.the app will store the search history and allow the user to click on the previously searched cities and see the forecast for that location. 
+  ![screenshot](https://github.com/davidsackett14/WeatherGenApp/blob/main/Screenshot%20(120).png)
   
   
   ## Table of Contents (Optional)
